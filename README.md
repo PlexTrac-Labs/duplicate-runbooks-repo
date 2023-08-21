@@ -1,7 +1,9 @@
-# base-API-script
-This repo can be used as a starting point for developing a Python script that utilizes the Plextrac API in some way. It acts as a mini framework with some helpful utilities that make endpoint calls easier. These utilities include a logger, authentication handler, API wrapper library that stores endpoint URLs, and other general utility function that revolve around user inputs, data sanitization, and data validation.
+# duplicate-runbooks-repo
+The blank instance of Plextrac contains the default runbooks repository PlexTrac Curated. This repo contains 1163 procedures from the MITRE Attack 9.0 and 11.3 frameworks. This repo is un-editable and you cannot copy or move procedures to different repositories.
 
-To get started make a copy of this repo and read through the main.py file which goes more in-depth about the utilities available. You can also run the script with the instructions below to see the output of the examples used when describing the utilities available. Once you know what's available, you can remove the examples, and start writing your script in the main.py file.
+This script will create a second repo mirroring the default where you can add, remove, or edit the procedures.
+
+The procedure information has been added to an accompanying JSON file. This file will probably get flagged by antivirus software and quarantined. Without this file, the script takes an extra ~10 minutes to run to get the information from the default repo in Plextrac before it can make the duplicate repo.
 
 # Requirements
 - [Python 3+](https://www.python.org/downloads/)
@@ -38,7 +40,9 @@ The following values can either be added to the `config.yaml` file or entered wh
 - Password
 
 ## Script Execution Flow
-- Starts executing the main.py file
-- Prints script info stored in settings.py
-- Reads in values from config.yaml file
-- Goes through list of examples to show the user current functionality that can be utilized
+- Authenticates to your instance of Plextrac
+- Loads procedure information from JSON file or gets procedures from the default repo in the instance if the file is missing
+- Prompts user to enter info to create new runbook repository
+- Creates new repo and imports all procedures
+
+Note: This will only import procedures into a new repository, not an existing one.
