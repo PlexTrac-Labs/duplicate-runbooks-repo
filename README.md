@@ -1,14 +1,15 @@
 # duplicate-runbooks-repo
+This script will duplicate a Runbooks Repository, similar to the duplicate repository option found in the Plextrac WriteupsDB. It aims to add similar repo duplication functionality to the RunbooksDB which currently lacks a way to do this in the platform UI.
+
+### Plextrac Curated Repository
 The blank instance of Plextrac contains the default runbooks repository PlexTrac Curated. This repo contains 1163 procedures from the MITRE Attack 9.0 and 11.3 frameworks. This repo is un-editable and you cannot copy or move procedures to different repositories.
 
-This script will create a second repo mirroring the default where you can add, remove, or edit the procedures.
-
-The procedure information has been added to an accompanying JSON file. This file will probably get flagged by antivirus software and quarantined. Without this file, the script takes an extra ~10 minutes to run to get the information from the default repo in Plextrac before it can make the duplicate repo.
+If the default repository is selected when running the script, the copy made will be editable, where you can now add, remove, or edit the procedures.
 
 # Requirements
 - [Python 3+](https://www.python.org/downloads/)
 - [pip](https://pip.pypa.io/en/stable/installation/)
-- [pipenv](https://pipenv.pypa.io/en/latest/install/)
+- [pipenv](https://pipenv.pypa.io/en/latest/)
 
 # Installing
 After installing Python, pip, and pipenv, run the following commands to setup the Python virtual environment.
@@ -41,8 +42,10 @@ The following values can either be added to the `config.yaml` file or entered wh
 
 ## Script Execution Flow
 - Authenticates to your instance of Plextrac
-- Loads procedure information from JSON file or gets procedures from the default repo in the instance if the file is missing
+- Loads Runbook Repository info from the instance
+- Prompts the user to select one of the loaded repos
 - Prompts user to enter info to create new runbook repository
-- Creates new repo and imports all procedures
+- Loads procedure information from the selected repo in the instance
+- Imports all procedures to the new repo
 
 Note: This will only import procedures into a new repository, not an existing one.

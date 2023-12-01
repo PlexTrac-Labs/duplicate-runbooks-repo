@@ -16,11 +16,10 @@ retries = 0
 
 # description of script that will be print line by line when the script is run
 script_info = ["====================================================================",
-               "= Duplicate Default 'PlexTrac Curated' Runbooks Repository Script  =",
+               "= Duplicate Runbooks Repository Script                             =",
                "=------------------------------------------------------------------=",
-               "= Use this script to create a new repository in Plextrac and load  =",
-               "= in the default runbooks procedures. This allows editing of the   =",
-               "= procedures in a new location that doesn't modify the defaults.   =",
+               "= Use this script to create a new repository in Plextrac and       =",
+               "= duplicate the procedures from another repository into it.        =",
                "=                                                                  =",
                "===================================================================="
             ]
